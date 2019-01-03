@@ -1,7 +1,7 @@
 ---
 title: "Answers Lab2"
-author: "You Name"
-date: "12/6/2018"
+author: "Marta Pérez Martinez"
+date: "03/01/2019"
 output: html_document
 ---
 
@@ -15,22 +15,39 @@ This is an R Markdown document including the solutions to the laboratory 2 for t
 
 ## Exploring the CPE Standard
 
-Using the functions implemented in the file `cpe.R`, it is possible to create a data frame containing the following columns:
+Using the functions implemented in the file `cpe.R`, we are able to download the file *official-cpe-dictionary_v2.3.xml* and arrange the data in some clarifying way.
 
-```{r file_load, error=FALSE}
-# source("./cpe.R")
-# df <- ParseCPEData()
+```{r file_load, error=FALSE, warning=FALSE, message=FALSE}
+source("./cpe.R")
+cpe.file<-Downloadfile()
+df <- ParseCPEData(cpe.file)
 ```
 
-Complete previously defined functions so that the package allows the generation of a data frame containing the data parsed from the CPE XML file.
+We create a data frame containing the following columns:
 
-```{r colnames, include=FALSE}
+```{r}
 colnames(df)
 ```
 
+
+Completing defined functions, the package allows the generation of a data frame containing the data parsed from the CPE XML file.
+
+```{r summary}
+summary(df)
+```
+
+The internal structure of the *df* dataframe:
+
+```{r internal structure}
+str(df)
+
+```
+
+
 Including fields such as...
 
-
-```{r important_columns, include=FALSE}
+```{r important_columns, echo=FALSE}
+colnames(df[1])
+colnames(df[2])
 
 ```
